@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Novel Locator - Book Recommender System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    .text-white {
+        color: white;
+    }
+
+    li {
+        font-size: 23px;
+        color: whitesmoke;
+        text-decoration: none;
+    }
+
+    .navbar {
+        padding: 5px;
+    }
+
+    .navbar a {
+        color: whitesmoke !important;
+        /* Change this to any color you prefer */
+    }
+
+    .navbar a:hover {
+        color: green !important;
+        /* Optional: color on hover */
+    }
+
+    .footcontent {
+        color: whitesmoke;
+        padding: 2px;
+        background-color: black;
+        width: 100vw;
+        height: 4vh;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 20px;
+    }
+    #but{
+        color : rgb(239, 226, 226);
+        padding : 5px;
+        height: 50px;
+        width: 180px;
+        border-radius: 11px;
+        background-color: #000000;
+        border: 2px solid black;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: large;  
+    }
+    /* #but:hover{
+        
+        color: green;
+        transform: scale(1.4);
+    } */
+</style>
+
+
+<body style="background-color:rgb(46, 46, 46)">
+
+    <nav class="navbar" style="background-color:#000000" >
+        <a class="navbar-brand"></a>
+        
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="/recommend">Book Recommender</a></li>
+        </ul>
+    </nav>
+    
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <center><h1 class="text-white" style="font-size:36px">Welcome to Novel Finder - One Stop Solution for Searching Novels!</h1></center>
+                <br><br>
+                <center><input type="button" id="but" value="Top Trending Books"></center>
+            </div>
+
+            {% for i in range(book_name|length) %}
+            <div class="col-md-3" style="margin-top:50px">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="{{ image[i] }}">
+                        <p class="text-white">{{ book_name[i] }}</p>
+                        <h4 class="text-white">{{ author[i] }}</h4>
+                        <h4 class="text-white">Votes - {{ votes[i] }}</h4>
+                        <h4 class="text-white">Rating - {{ rating[i] }}</h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+<div class="footcontent">
+    <center><p>Novel Locator &copy; ALL RIGHTS RESERVED @2024</p></center>
+</div>
+</body>
+
+</html>
