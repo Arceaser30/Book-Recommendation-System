@@ -1,11 +1,18 @@
-from flask import Flask,render_template,request
+import os
+from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
-popular_df = pickle.load(open('popular.pkl','rb'))
-pt = pickle.load(open('pt.pkl','rb'))
-books = pickle.load(open('books.pkl','rb'))
-similarity_scores = pickle.load(open('similarity_scores.pkl','rb'))
+app = Flask(__name__)
+
+# Get the base directory of the current file
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Load pickled data using absolute paths
+popular_df = pickle.load(open(os.path.join(base_dir, 'popular.pkl'), 'rb'))
+pt = pickle.load(open(os.path.join(base_dir, 'pt.pkl'), 'rb'))
+books = pickle.load(open(os.path.join(base_dir, 'books.pkl'), 'rb'))
+similarity_scores = pickle.load(open(os.path.join(base_dir, 'similarity_scores.pkl'), 'rb'))
 
 app = Flask(__name__)
 
